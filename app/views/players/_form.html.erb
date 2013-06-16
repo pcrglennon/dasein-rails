@@ -1,0 +1,48 @@
+<% content_for :head do %>
+    <% javascript_include_tag 'admin' %>
+<% end %>
+
+<%= form_for(@player) do |f| %>
+  <% if @player.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:</h2>
+
+      <ul>
+      <% @player.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="entry_field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="entry_field">
+    <%= f.label :class_year %><br>
+    <%= f.select :class_year, @player.class_year_list %>
+  </div>
+  <div class="entry_field">
+    <%= f.label :number %><br>
+    <%= f.number_field :number, :max_length => 2 %>
+  </div>
+  <div class="entry_error">
+    <label id="player_number_error"></label>
+  </div>
+  <div class="entry_field">
+    <%= f.label :height %><br>
+    <%= f.text_field :height %>
+  </div>
+  <div class="entry_error">
+    <label id="player_height_error"></label>
+  </div>
+  <div class="entry_field">
+    <%= f.label :hometown %><br>
+    <%= f.text_field :hometown %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

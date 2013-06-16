@@ -1,0 +1,28 @@
+// Place all the styles related to the Players controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.entry_field,
+.entry_error {
+  float: left;
+  height: 50px;
+  padding: 10px;
+  margin: 8px;
+}
+
+.entry_field{
+  width: 300px;
+  clear: left;
+  background-color: #666666;
+}
+
+.entry_error {
+  width: 450px;
+  background-color: #F08187;
+  text-align: center;
+  label {
+    background-color:inherit;
+    font: bold italic 16px/50px arial;
+    color: #171717;
+  }
+}
