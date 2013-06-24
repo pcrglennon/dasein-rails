@@ -2,10 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* Player List (index.html.erb)*/
+
+a.player-link {
+  display: block;
+}
+
+div.player-cell {
+  background-color: #BFBFBF;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+ul.player-info {
+  list-style-type: none;
+  text-align: left;
+}
+
+/* Form (_form.html.erb) */
+
+$field-height: 50px;
+
 .entry_field,
 .entry_error {
   float: left;
-  height: 50px;
+  height: $field-height;
   padding: 10px;
   margin: 8px;
 }
@@ -22,7 +44,7 @@
   text-align: center;
   label {
     background-color:inherit;
-    font: bold italic 16px/50px arial;
+    font: bold italic 16px/$field-height arial;
     color: #171717;
   }
 }

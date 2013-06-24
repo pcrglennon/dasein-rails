@@ -1,0 +1,36 @@
+@import "bootstrap";
+@import "bootstrap-responsive";
+
+body {
+  padding-top: 50px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+/* Typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+/* Header and Footer */
+
+#logo {
+  float: left;
+  margin-right: 12px;
+  font-size: 20px;
+  color: #fff;
+  padding: 10px 0px 5px 10px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}

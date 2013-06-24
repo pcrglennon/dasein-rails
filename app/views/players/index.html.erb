@@ -1,34 +1,32 @@
-<h1>Listing players</h1>
+<% provide(:title, "Player List") %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Class Year</th>
-      <th>Number</th>
-      <th>Height</th>
-      <th>Hometown</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<h1>Player List</h1>
 
-  <tbody>
-    <% @players.each do |player| %>
-      <tr>
-        <td><%= player.name %></td>
-        <td><%= player.class_year %></td>
-        <td><%= player.number %></td>
-        <td><%= player.height %></td>
-        <td><%= player.hometown %></td>
-        <td><%= link_to 'Show', player %></td>
-        <td><%= link_to 'Edit', edit_player_path(player) %></td>
-        <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <% @players.each do |player| %>
+      <a class="player-link" href="<%= player_path(player.id) %>">
+        <div class="span3 player-cell">
+          <h5 class="player-heading">
+            <%= player.name %>
+          </h5>
+          <ul class="player-info">
+            <li>Class: <%= player.class_year %></li>
+            <li>Number: <%= player.number %></li>
+            <li>Height: <%= player.height %></li>
+            <li>Hometown: <%= player.hometown %></li>
+          </ul>
+          <div class="row">
+            <div class="span1">
+              <%= link_to 'Edit', edit_player_path(player) %>
+            </div>
+            <div class="span1 offset1">
+              <%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+        </div>
+      </a>
+  <% end %>
+</div>
 
 <br>
 
