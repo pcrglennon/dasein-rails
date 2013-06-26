@@ -1,0 +1,31 @@
+<% provide(title: "Player Management") %>
+
+<div class="row">
+  <% @players.each do |player| %>
+      <a class="player-link" href="<%= admin_player_path(player) %>">
+        <div class="span3 player-cell">
+          <h5 class="player-heading">
+            <%= player.name %>
+          </h5>
+          <ul class="player-info">
+            <li>Class: <%= player.class_year %></li>
+            <li>Number: <%= player.number %></li>
+            <li>Height: <%= player.height %></li>
+            <li>Hometown: <%= player.hometown %></li>
+          </ul>
+          <div class="row">
+            <div class="span1">
+              <%= link_to 'Edit', edit_admin_player_path(player) %>
+            </div>
+            <div class="span1 offset1">
+              <%= link_to 'Destroy', admin_player_path(player), method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+        </div>
+      </a>
+  <% end %>
+</div>
+
+<br>
+
+<%= link_to 'New Player', new_admin_player_path %>

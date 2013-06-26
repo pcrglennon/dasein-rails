@@ -1,6 +1,11 @@
 Dasein::Application.routes.draw do
   root "static#home"
-  resources :players
+  resources :players, only: [ :index, :show ]
+
+  namespace :admin do
+    get '', to: 'dashboard#index', as: '/'
+    resources :players
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
