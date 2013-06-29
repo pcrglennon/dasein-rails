@@ -1,10 +1,14 @@
 Dasein::Application.routes.draw do
   root "static#home"
-  resources :players, only: [ :index, :show ]
+  resources :players, only: [:index, :show]
 
   namespace :admin do
     get '', to: 'dashboard#index', as: '/'
     resources :players
+    resources :sessions, only: [:new, :create, :destroy]
+    #Logging in and out
+    match '/login', to: 'sessions#new', via: 'get'
+    match '/logout', to: 'sessions#destroy', via: 'delete'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
