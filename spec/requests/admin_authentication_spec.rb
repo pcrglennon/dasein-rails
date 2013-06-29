@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Administrator Authentication" do
+describe 'admin authentication' do
 
   subject { page }
 
@@ -34,6 +34,7 @@ describe "Administrator Authentication" do
         before { visit root_url }
         it { should_not have_selector('div.alert.alert-success', text: 'Welcome') }
       end
+
     end
   end
 end

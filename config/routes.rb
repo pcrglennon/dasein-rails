@@ -11,6 +11,9 @@ Dasein::Application.routes.draw do
     match '/logout', to: 'sessions#destroy', via: 'delete'
   end
 
+  #Non-existent pages
+  get '*a' => 'application#not_found'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

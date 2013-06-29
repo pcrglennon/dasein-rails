@@ -1,4 +1,6 @@
-class Admin::SessionsController < ApplicationController
+class Admin::SessionsController < Admin::BaseController
+
+  skip_before_filter :authorize
 
   def new
 

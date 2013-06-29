@@ -1,4 +1,8 @@
-module SessionsHelper
+module Admin::SessionsHelper
+
+  def authorize
+    redirect_to admin_login_url unless admin_logged_in?
+  end
 
   def admin_log_in(admin)
     session[:current_admin_id] = admin.id

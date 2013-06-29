@@ -1,10 +1,6 @@
-class Admin::DashboardController < ApplicationController
+class Admin::DashboardController < Admin::BaseController
+  before_filter :authorize
 
   def index
-    if admin_logged_in?
-      render 'index'
-    else
-      redirect_to admin_login_path
-    end
   end
 end

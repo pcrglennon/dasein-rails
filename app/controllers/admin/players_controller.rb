@@ -1,5 +1,5 @@
-class Admin::PlayersController < ApplicationController
-
+class Admin::PlayersController < Admin::BaseController
+  before_filter :authorize
 
   before_action :set_player, only: [:show, :edit, :update, :destroy]
 
