@@ -1,3 +1,17 @@
-<div class="center hero-unit">
+<div class="center">
   <%= image_tag "conn_fd_banner.jpg" %>
+
+
+</div>
+<div class="row">
+  <aside>
+
+  </aside>
+  <div class="span10">
+    <h3>Recent News</h3>
+    <ul class="posts">
+      <%= render @posts %>
+    </ul>
+    <%= will_paginate @posts %>
+  </div>
 </div>

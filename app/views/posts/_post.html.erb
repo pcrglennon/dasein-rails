@@ -1,0 +1,13 @@
+<li>
+  <div class="post">
+    <h6 class="title">
+      <%= post.title %>
+    </h6>
+    <p class="timestamp">
+      Posted <%= time_ago_in_words(post.created_at) %> ago.
+    </p>
+    <p class="content">
+      <%= post.content %>
+    </p>
+  </div>
+</li>

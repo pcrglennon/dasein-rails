@@ -4,9 +4,10 @@
     <nav>
       <ul class="nav pull-right">
         <% if admin_logged_in? %>
+            <li><%= link_to 'Roster', admin_players_path %></li>
             <li><%= link_to 'Log Out', admin_logout_path, method: 'delete' %></li>
         <% else %>
-            <li><%= link_to 'Roster', 'players#index' %></li>
+            <li><%= link_to 'Roster', players_path %></li>
             <li><%= link_to 'Admin Login', admin_login_path %></li>
         <% end %>
       </ul>

@@ -12,6 +12,8 @@ describe Admin do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:posts) }
+
   it { should be_valid }
 
   #Username validation
@@ -79,5 +81,31 @@ describe Admin do
       specify { expect(admin_invalid_password).to be_false }
     end
   end
+
+  # Posts
+
+  describe 'post associations' do
+    before { @admin.save }
+    let!(:older_post) do
+      FactoryGirl.create(:post, admin: @admin, created_at: 1.day.ago)
+    end
+    let!(:newer_post) do
+      FactoryGirl.create(:post, admin: @admin, created_at: 1.hour.ago)
+    end
+    it 'should have posts in correct order' do
+      expect(@admin.posts.to_a).to eq [newer_post, older_post]
+    end
+
+    it 'posts should be destroyed w/ destroyed admin' do
+      posts = @admin.posts.to_a
+      @admin.destroy
+      expect(posts).not_to be_empty
+      posts.each do |post|
+        expect(Post.where(id: post.id)).to be_empty
+      end
+    end
+  end
+
+
 
 end

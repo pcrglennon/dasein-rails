@@ -1,4 +1,6 @@
 class Admin < ActiveRecord::Base
+  has_many :posts, dependent: :destroy
+
   validates :username, presence: true,
             length: { maximum: 40 },
             uniqueness: { case_sensitive: false }
