@@ -5,6 +5,9 @@ module Admin::SessionsHelper
   end
 
   def admin_log_in(admin)
+    remember_token = Admin.new_remember_token
+    cookies[:remember_token] = { value: remember_token, expires: 1.month.from_now.utc }
+    admin.update_attributes(:remember_token, Admin.encrypt(remember_token))
     session[:current_admin_id] = admin.id
     self.current_admin = admin
   end
@@ -18,7 +21,8 @@ module Admin::SessionsHelper
   end
 
   def current_admin
-    @_current_admin ||= session[:current_admin_id] && Admin.find_by_id(session[:current_admin_id])
+    remember_token = Admin.encrypt(cookies[:remember_token])
+    @current_admin ||= Admin.find_by(remember_token: remember_token)
   end
 
   def current_admin=(admin)

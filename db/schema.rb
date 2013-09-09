@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130626211920) do
+ActiveRecord::Schema.define(version: 20130909180028) do
 
   create_table "admins", force: true do |t|
     t.string   "username"
@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 20130626211920) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_token"
   end
 
+  add_index "admins", ["remember_token"], name: "index_admins_on_remember_token", using: :btree
   add_index "admins", ["username"], name: "index_admins_on_username", unique: true, using: :btree
 
   create_table "players", force: true do |t|
