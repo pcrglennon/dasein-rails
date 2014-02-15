@@ -1,0 +1,27 @@
+<h1>Listing Players</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Number</th>
+    <th>Class Year</th>
+    <th>Height</th>
+    <th>Hometown</th>
+  </tr>
+ 
+<% @players.each do |player| %>
+  <tr>
+    <td><%= link_to player.name, player %></td>
+    <td><%= player.number %></td>
+    <td><%= player.classyear %></td>
+    <td><%= player.height %></td>
+    <td><%= player.hometown %></td>
+    <td><%= link_to 'Edit', edit_player_path(player) %></td>
+    <td><%= link_to 'Delete', player, method: :delete, data: { confirm: "Are you sure?" } %></td>
+  </tr>
+<% end %>
+</table>
+ 
+<br />
+
+<%= link_to 'New', new_player_path %>
