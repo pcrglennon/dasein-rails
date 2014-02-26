@@ -6,9 +6,11 @@ Dasein::Application.routes.draw do
 
   namespace :admin do
     get '', to: 'dashboard#index', as: '/'
+    resources :sessions, only: [:new, :create, :destroy]
     resources :posts
-    resources :players
 
+    match 'login', to: 'sessions#new', via: :get
+    match 'logout', to: 'sessions#destroy', via: :delete
   end
 
 end
