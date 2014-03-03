@@ -1,3 +1,5 @@
-<h1>Editing Player: <%= @player.name %></h1>
+<br/>
+<br/>
+<br/>
 
-<%= render 'form', object: @player %>
+<%= render :partial => 'form', object: @player, :locals =>{ submit_text: 'Submit' }%>

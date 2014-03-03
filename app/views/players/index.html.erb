@@ -1,27 +1,30 @@
-<h1>Listing Players</h1>
- 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Number</th>
-    <th>Class Year</th>
-    <th>Height</th>
-    <th>Hometown</th>
-  </tr>
- 
-<% @players.each do |player| %>
-  <tr>
-    <td><%= link_to player.name, player %></td>
-    <td><%= player.number %></td>
-    <td><%= player.classyear %></td>
-    <td><%= player.height %></td>
-    <td><%= player.hometown %></td>
-    <td><%= link_to 'Edit', edit_player_path(player) %></td>
-    <td><%= link_to 'Delete', player, method: :delete, data: { confirm: "Are you sure?" } %></td>
-  </tr>
-<% end %>
-</table>
+<br />
+<br />
+<br />
+
+<div class="row">
+  <% @players.each do |player| %>
+    <div class="player-cell">
+      <div class="player-thumbnail"></div>
+      <p><%= link_to player.name, player %></p>
+      <% unless player.nickname.blank? %>
+        <p>"<%= player.nickname %>"</p>
+      <% end %>
+      <p>#<%= player.number %></p>
+      <p><%= player.classyear %></p>
+      <% if admin_logged_in? %>
+        <p>
+          <%= link_to 'Edit', edit_player_path(player.id) %>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <%= link_to 'Delete', player, method: :delete, data: { confirm: "Are you sure?" } %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
  
 <br />
 
-<%= link_to 'New', new_player_path %>
+<% if admin_logged_in? %>
+  <%= link_to 'New', new_player_path %>
+<% end %>

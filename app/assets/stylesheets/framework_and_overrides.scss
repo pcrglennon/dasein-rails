@@ -1,6 +1,14 @@
 // import the CSS framework
 @import "bootstrap";
 
+// mixins, variables, etc.
+
+@mixin box-sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 // make all images responsive by default
 img {
   @extend .img-responsive;
@@ -11,25 +19,6 @@ img {
   font-size: inherit;
 }
 
-// THESE ARE EXAMPLES YOU CAN MODIFY
-// create your own classes
-// to make views framework-neutral
-.column {
-  @extend .col-md-6;
-  @extend .text-center;
-}
-.form {
-  @extend .col-md-6;
-}
-.form-centered {
-  @extend .col-md-6;
-  @extend .text-center;
-}
-.submit {
-  @extend .btn;
-  @extend .btn-primary;
-  @extend .btn-lg;
-}
 // apply styles to HTML elements
 // to make views framework-neutral
 main {
@@ -42,4 +31,14 @@ main {
 section {
   @extend .row;
   margin-top: 20px;
+}
+
+// Parameters debug div
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box-sizing;
 }

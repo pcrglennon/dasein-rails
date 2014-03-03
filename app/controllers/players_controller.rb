@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
 
-  before_filter :signed_in_admin, only: [:create, :edit, :update]
+  before_filter :signed_in_admin, only: [:create, :edit, :update, :destroy]
 
   def index
     @players = Player.all
@@ -48,7 +48,7 @@ class PlayersController < ApplicationController
   private
 
     def player_params
-      params.require(:player).permit(:name, :number, :classyear, :height, :hometown)
+      params.require(:player).permit(:name, :nickname, :number, :classyear, :height, :hometown)
     end
 
     def signed_in_admin
