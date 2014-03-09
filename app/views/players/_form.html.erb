@@ -6,36 +6,43 @@
 		<%= render 'error_messages' %>
 
 		<div class="form-group">
-			<%= f.label:name, class: "col-sm-2 form-label" %>
+			<%= f.label "First name:", class: "col-sm-3 form-label" %>
 			<div class="col-sm-7">
-				<%= f.text_field :name, class: "form-control" %>
+				<%= f.text_field :firstname, class: "form-control" %>
 			</div>
 		</div>
 
 		<div class="form-group">
-			<%= f.label:nickname, class: "col-sm-2 form-label" %>
+			<%= f.label "Last name:", class: "col-sm-3 form-label" %>
+			<div class="col-sm-7">
+				<%= f.text_field :lastname, class: "form-control" %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= f.label "#{:nickname}:", class: "col-sm-3 form-label" %>
 			<div class="col-sm-7">
 				<%= f.text_field :nickname, class: "form-control" %>
 			</div>
 		</div>
 
 		<div class="form-group">
-			<%= f.label:number, class: "col-sm-2 form-label" %>
+			<%= f.label "#{:number}:", class: "col-sm-3 form-label" %>
 			<div class="col-sm-2">
 				<%= f.text_field :number, class: "form-control" %>
 			</div>
 		</div>
 
 		<div class="form-group">
-			<%= f.label:classyear, class: "col-sm-2 form-label" %>
+			<%= f.label "Class year:", class: "col-sm-3 form-label" %>
 			<div class="col-sm-7">
-				<%= f.select(:classyear , ['Freshman', 'Sophomore', 'Junior', 'Senior'],  class: "form-control") %>
+				<%= f.select(:classyear , Player.classyear_list,  class: "form-control") %>
 			</div>
 		</div>
 
 
 		<div class="form-group">
-			<%= f.label:height, class: "col-sm-2 form-label" %>
+			<%= f.label "#{:height}:", class: "col-sm-3 form-label" %>
 			<div class="col-sm-2">
 				<%= f.text_field :height, class: "form-control" %>
 			</div>
@@ -43,14 +50,14 @@
 
 
 		<div class="form-group">
-			<%= f.label:hometown, class: "col-sm-2 form-label" %>
+			<%= f.label "#{:hometown}:", class: "col-sm-3 form-label" %>
 			<div class="col-sm-7">
 				<%= f.text_field :hometown, class: "form-control" %>
 			</div>
 		</div>
 
 		<div class="form-group">
-			<div class="col-sm-7 col-sm-offset-2">
+			<div class="col-sm-7 col-sm-offset-3">
 				<%= f.submit submit_text, class: "btn btn-primary" %>
 			</div>
 		</div>

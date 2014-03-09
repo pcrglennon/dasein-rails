@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140303174913) do
+ActiveRecord::Schema.define(version: 20140309211317) do
 
   create_table "admin_posts", force: true do |t|
     t.string   "title"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20140303174913) do
   add_index "admins", ["remember_token"], name: "index_admins_on_remember_token", using: :btree
 
   create_table "players", force: true do |t|
-    t.string   "name"
     t.integer  "number"
     t.string   "height"
     t.string   "classyear"
@@ -41,6 +40,8 @@ ActiveRecord::Schema.define(version: 20140303174913) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nickname"
+    t.string   "firstname"
+    t.string   "lastname"
   end
 
 end

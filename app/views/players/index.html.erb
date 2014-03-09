@@ -6,10 +6,7 @@
   <% @players.each do |player| %>
     <div class="player-cell">
       <div class="player-thumbnail"></div>
-      <p><%= link_to player.name, player %></p>
-      <% unless player.nickname.blank? %>
-        <p>"<%= player.nickname %>"</p>
-      <% end %>
+      <p><%= link_to player.name_with_nickname, player %></p>
       <p>#<%= player.number %></p>
       <p><%= player.classyear %></p>
       <% if admin_logged_in? %>
