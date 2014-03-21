@@ -11,8 +11,11 @@
 /log/*.log
 /tmp
 
-# Ignore this local help file
-remember.txt
+# Sublime stuff
+*.sublime-workspace
+*.sublime-project
+
+.sass-cache
 
 db/development.sqlite3
 config/database.yml

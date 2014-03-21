@@ -1,0 +1,30 @@
+<% content_for :title, 'Post Administration' %>
+
+<h1>Posts</h1>
+
+<div class="table-responsive">
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr class="post-controls">
+				<th class="post-new" colspan="4"><%= link_to 'New Post', new_admin_post_path, :class => "btn btn-success" %></th>
+			</tr>
+			<tr class="post-headings">
+				<th>Title</th>
+				<th>Author</th>
+				<th>First posted</th>
+				<th></th>
+			</tr>
+		</thead>
+		<% @posts.each do |post| %>
+		  <tr class="post-row">
+		  	<td><%= link_to post.title, post %></td>
+		  	<td><%= post.admin.username %> (NYI)</td>
+		  	<td><%= post.created_at.strftime("%m/%d/%Y, %l:%M %p") %></td>
+		  	<td>
+		  		<%= link_to 'Edit', edit_admin_post_path(post.id), :class => "btn btn-primary" %>		  	
+		  		<%= link_to 'Delete', [:admin, post], method: :delete, confirm: 'Are you sure?', :class => "btn btn-danger" %>
+		  	</td>
+		  </tr>
+		<% end %>
+	</table>
+</div>

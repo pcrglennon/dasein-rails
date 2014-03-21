@@ -1,0 +1,6 @@
+<% content_for :title, @post.title %>
+
+<h1 class="title"><%= @post.title %></h1>
+<h4 class="info"><%= @post.admin.username %></h4>
+<h4 class="info"><%= @post.created_at.strftime("%m/%d/%Y, %l:%M %p") %></h4>
+<p class="content"><%= @post.content %></p>

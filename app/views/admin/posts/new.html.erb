@@ -1,0 +1,9 @@
+<% content_for :title, "New Post" %>
+
+<h1>New Post</h1>
+
+<br/>
+<br/>
+<br/>
+
+<%= render :partial => 'form', object: @post, :locals => { submit_text: 'Create' } %>

@@ -1,6 +1,8 @@
 class Admin < ActiveRecord::Base
   has_secure_password
   
+  has_many :posts
+
   before_save { |admin| admin.username = username.downcase }
   before_save :create_remember_token
 
