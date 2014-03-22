@@ -14,7 +14,6 @@
     </header>
     <main role="main">
       <%= render 'layouts/messages' %>
-      <%= link_to image_tag("banner_no_text.jpeg", :border => 0, :class => "banner"), root_url %>
       <div class="container">
         <%= yield %>
         <%= debug(params) if Rails.env.development? %>
