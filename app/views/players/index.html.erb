@@ -14,9 +14,9 @@
         <p><%= player.classyear %></p>
         <% if admin_logged_in? %>
           <p>
-            <%= link_to 'Edit', edit_player_path(player.id) %>
+            <%= link_to 'Edit', edit_admin_player_path(player.id) %>
             &nbsp;&nbsp;|&nbsp;&nbsp;
-            <%= link_to 'Delete', player, method: :delete, data: { confirm: "Are you sure?" } %>
+            <%= link_to 'Delete', [:admin, player], method: :delete, data: { confirm: "Are you sure?" } %>
           </p>
         <% end %>
       </div>
@@ -27,5 +27,5 @@
 <br />
 
 <% if admin_logged_in? %>
-  <%= link_to 'New', new_player_path %>
+  <%= link_to 'New', new_admin_player_path %>
 <% end %>
